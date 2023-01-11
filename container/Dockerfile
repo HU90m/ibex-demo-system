@@ -73,7 +73,6 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 
 # Scripting for use within this container.
-COPY container/start.sh /start.sh
 COPY container/sudoconf /etc/sudoers.d/dev
 
 # Add the development user (UID/GID to be replaced).
@@ -93,4 +92,5 @@ RUN python3 -m pip install --user -U pip setuptools \
         --no-warn-script-location \
     && rm -f /tmp/python-requirements.txt
 
-ENTRYPOINT [ "/start.sh" ]
+ENTRYPOINT [ ]
+CMD [ "/bin/bash" ]
